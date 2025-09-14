@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Page</title>
+  <script>
+    // Test if JavaScript is working
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Test page loaded');
+      
+      // Test if we can load the main JavaScript file
+      const script = document.createElement('script');
+      script.src = '/assets/index-Z-rtyXL2.js';
+      script.onload = () => console.log('Main script loaded successfully');
+      script.onerror = (e) => console.error('Error loading main script:', e);
+      document.head.appendChild(script);
+      
+      // Test if we can load the CSS
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/assets/index-p_ZN391h.css';
+      link.onload = () => console.log('CSS loaded successfully');
+      link.onerror = (e) => console.error('Error loading CSS:', e);
+      document.head.appendChild(link);
+    });
+  </script>
+</head>
+<body>
+  <h1>Test Page</h1>
+  <p>If you see this, the server is working.</p>
+  <p>Check the browser console for more information.</p>
+</body>
+</html>
