@@ -1,4 +1,4 @@
-(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const n of t.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&s(n)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function s(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();function c(){return`
+(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))n(t);new MutationObserver(t=>{for(const e of t)if(e.type==="childList")for(const o of e.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function s(t){const e={};return t.integrity&&(e.integrity=t.integrity),t.referrerPolicy&&(e.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?e.credentials="include":t.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function n(t){if(t.ep)return;t.ep=!0;const e=s(t);fetch(t.href,e)}})();function u(){return`
     <header class="bg-white/70 dark:bg-gray-900/50 backdrop-blur sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </header>
-  `}function u(){return`
+  `}function p(){return`
     <footer class="border-t border-gray-200 dark:border-gray-800 py-8 mt-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-600 dark:text-gray-300 flex items-center justify-between">
         <p>© ${new Date().getFullYear()} Windsurf. All rights reserved.</p>
@@ -21,7 +21,7 @@
         </div>
       </div>
     </footer>
-  `}function x(a){const r=()=>{const n=`/${window.location.hash.replace(/^#\/?/,"")||""}`;return a[n]||a["/"]};let i=r();const s=new Set,e=()=>{i=r(),s.forEach(t=>t(i))};return window.addEventListener("hashchange",e),{get current(){return i},subscribe(t){return s.add(t),()=>s.delete(t)}}}function p(){return`
+  `}function f(a){const r=()=>{const e=window.location.hash.replace(/^#\/?/,"")||"",o=e?`/${e}`:"/";return a[o]||a["/"]||(()=>"<div>Page not found</div>")};let s=r();const n=new Set,t=()=>{s=r(),n.forEach(e=>e(s))};return window.location.hash||(window.location.hash="/"),window.addEventListener("hashchange",t),window.addEventListener("load",t),{get current(){return s},subscribe(e){return n.add(e),e(s),()=>n.delete(e)}}}function m(){return`
     <section class="py-16 sm:py-24 bg-gradient-to-b from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -36,7 +36,7 @@
         </div>
       </div>
     </section>
-  `}function o(){return`
+  `}function d(){return`
     <section class="py-12 sm:py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-8">Features</h2>
@@ -50,16 +50,16 @@
         </div>
       </div>
     </section>
-  `}function m(){return`
-    <main>
-      ${p()}
-      ${o()}
-    </main>
-  `}function f(){return`
-    <main>
-      ${o()}
-    </main>
   `}function g(){return`
+    <main>
+      ${m()}
+      ${d()}
+    </main>
+  `}function x(){return`
+    <main>
+      ${d()}
+    </main>
+  `}function h(){return`
     <main class="py-12">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose dark:prose-invert">
         <h1>About</h1>
@@ -72,9 +72,13 @@
         </p>
       </div>
     </main>
-  `}const h={"/":m,"/features":f,"/about":g},d=x(h),b=document.querySelector("#app");function l(a){b.innerHTML=`
-    ${c()}
-    ${a()}
+  `}const b={"/":g,"/features":x,"/about":h},l=f(b),i=document.querySelector("#app");if(!i)throw console.error("Could not find #app element"),document.body.innerHTML='<div style="color: red; padding: 20px; font-family: sans-serif;">Error: Could not find #app element</div>',new Error("Could not find #app element");function c(a){try{i.innerHTML=`
     ${u()}
-  `}l(d.current);d.subscribe(l);
-//# sourceMappingURL=index-DiDrudC0.js.map
+    ${a()}
+    ${p()}
+  `}catch(r){console.error("Error rendering page:",r),i.innerHTML=`
+      <div style="color: red; padding: 20px; font-family: sans-serif;">
+        Error rendering page: ${r.message}
+      </div>
+    `}}c(l.current);l.subscribe(c);
+//# sourceMappingURL=index-Z-rtyXL2.js.map
